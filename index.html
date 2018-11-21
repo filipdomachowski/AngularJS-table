@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Table</title>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> 
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body ng-app="app" ng-controller="main-controller">
+        <div class="container">   
+            <div class="search-bar">
+                <input type="text" ng-change="filterContent()" ng-model-options="{debounce: 500}" ng-model="searchedPhrase" style="padding-right: 20px">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="grid-header-container">
+                <div class="item-header" ng-repeat="header in getNumber(3) track by $index"><input type="text" placeholder="HEADER {{$index}}"></div>
+            </div>
+            <div class="wrapper">
+                <div class="grid-body-container" ng-if="models[$index].visible"  ng-repeat="row in getNumber(5) track by $index">            
+                    <div class="item-body-cell" ng-repeat="cell in getNumber(3) track by $index">
+                        <input  type="text"  
+                                placeholder="{{$index}}"                                
+                                ng-change="filterContent()"  
+                                ng-model-options="{debounce: 500}" 
+                                ng-model="models[$parent.$index].values[$index]">
+                    </div>
+                </div>            
+            </div>
+            <div class="items-bar">
+                {{counter}} rows of {{models.length}}
+            </div>                    
+        </div>        
+    </body>
+</html>

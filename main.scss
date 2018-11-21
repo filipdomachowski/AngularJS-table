@@ -1,0 +1,200 @@
+$odd-bg-color: rgb(245,245,245);
+$header-bottom-border: rgb(200,200,200);
+$cell-hover-color: rgb( 81, 203, 238 );
+
+@mixin grid-header-container-style() {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);   
+    margin: auto;
+};
+
+@mixin grid-body-container-style() {
+    display: grid;   
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    margin: auto;   
+};
+
+@mixin search-bar-container-style(){
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   
+    margin: auto;
+    margin-bottom: 30px;
+};
+
+@mixin wrapper-style(){    
+    margin: auto;
+    padding-left: 17px;
+    padding-right: 17px;
+    height: 78px;
+    overflow-y: overlay;
+};
+
+@mixin search-style(){
+    width: 200px;            
+    position: relative;    
+    margin-left: auto;
+    margin-bottom: 30px;    
+};
+
+@media only screen and (max-width: 575px){
+    .search-bar {
+        @include search-style();
+        margin-right: 10%        
+    };
+
+    .items-bar {
+        @include search-style();
+        margin-right: 10%;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: right;
+        margin-top: 10px;
+        font-size: 10pt;
+    };
+
+    .grid-header-container {
+        @include grid-header-container-style();
+        width: 80%;
+    };
+
+    .grid-body-container {
+        @include grid-body-container-style();        
+    };
+
+    .wrapper {
+        @include wrapper-style();
+        width: 80%;
+    };
+};
+
+@media only screen and (min-width: 576px){
+    .search-bar {
+        @include search-style();
+        margin-right: 10%        
+    };
+
+    .items-bar {
+        @include search-style();
+        margin-right: 10%;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: right;
+        margin-top: 10px;
+        font-size: 10pt;
+    };
+
+    .grid-header-container {
+        @include grid-header-container-style();
+        width: 80%;
+    };
+
+    .grid-body-container {
+        @include grid-body-container-style();        
+    };
+
+    .wrapper {
+        @include wrapper-style();
+        width: 80%;
+    };
+};
+
+@media only screen and (min-width: 768px){
+    .search-bar {
+        @include search-style();
+        margin-right: 15%        
+    };
+
+    .items-bar {
+        @include search-style();
+        margin-right: 15%;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: right;
+        margin-top: 10px;
+        font-size: 10pt;
+    };
+
+    .grid-header-container {
+        @include grid-header-container-style();
+        width: 70%;
+    };
+
+    .grid-body-container {
+        @include grid-body-container-style();        
+    };
+
+    .wrapper {
+        @include wrapper-style();
+        width: 70%;
+    };
+};
+
+@media only screen and (min-width: 960px){   
+    .search-bar {
+        @include search-style();
+        margin-right: 25%        
+    };
+
+    .items-bar {
+        @include search-style();
+        margin-right: 25%;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: right;
+        margin-top: 10px;
+        font-size: 10pt;
+    };
+
+    .grid-header-container {
+        @include grid-header-container-style();
+        width: 50%;
+    };
+
+    .grid-body-container {
+        @include grid-body-container-style();        
+    };
+
+    .wrapper {
+        @include wrapper-style();
+        width: 50%;
+    };
+};
+
+.container {
+    margin-top: 100px;
+};
+
+input {
+    width: 100%;
+    line-height: 20pt;
+    display: block;
+    margin: auto;
+    padding: 0 3px;
+    box-sizing: border-box; 
+    border: none; 
+    cursor: pointer;   
+};
+
+.search-bar input{
+    border: 1px solid rgb(210,210,210);
+};
+
+.fas.fa-search {
+    position: relative;
+    float: right;
+    bottom: 22px;
+    right: 5px;
+};
+
+.grid-body-container:nth-child(odd) input{
+    background-color: $odd-bg-color;
+};
+
+.grid-header-container {
+    border-bottom: 2px solid $header-bottom-border
+};
+
+.item-body-cell:hover input {
+    background-color: $cell-hover-color;
+    color: white;
+    font-weight: bold;
+    transition: background-color ease-in-out 0.1s, color ease-in-out 0.1s, font-weight ease-in-out 0.1s;
+};
