@@ -1,4 +1,4 @@
-#AngularJS directive-like table witrh fixed header
+# AngularJS directive-like table with fixed header
 
 Implementation responsive (RWD) and scrollable table with fixed header using HTML5, CSS grid and SASS compiler.
 
